@@ -1,0 +1,16 @@
+{
+  "name": "react-fundamentals",
+  "version": "0.0.1",
+  "description": "React 기초 학습 (with TypeScript)",
+  "scripts": {},
+  "keywords": [
+    "react",
+    "typescript"
+  ],
+  "author": {
+    "name": "yamoo9",
+    "email": "yamoo9@naver.com",
+    "url": "https://euid.dev"
+  },
+  "license": "MIT"
+}
