@@ -15,7 +15,7 @@ function ColorModeSwitch() {
         onChange={toggleColorMode}
       />
       <FormLabel htmlFor={id} m={0} mr={2}>
-        다크 모드
+        Dark Mode
       </FormLabel>
     </HStack>
   );
