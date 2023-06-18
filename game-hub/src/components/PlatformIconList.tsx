@@ -35,6 +35,7 @@ function PlatformIconList({ platforms }: Props) {
     <HStack>
       {platforms.map((platform) => (
         <Icon
+          key={platform.id}
           as={iconMap[platform.slug]}
           aria-label={platform.name}
           title={platform.name}
