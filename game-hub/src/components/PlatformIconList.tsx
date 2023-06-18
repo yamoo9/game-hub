@@ -32,7 +32,7 @@ interface Props {
 
 function PlatformIconList({ platforms }: Props) {
   return (
-    <HStack mt={2}>
+    <HStack>
       {platforms.map((platform) => (
         <Icon
           as={iconMap[platform.slug]}
