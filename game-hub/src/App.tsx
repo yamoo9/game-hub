@@ -1,12 +1,27 @@
-import { Container, Box, Button } from '@chakra-ui/react';
+import { Grid, GridItem, Show } from '@chakra-ui/react';
 
 function App() {
   return (
-    <Container>
-      <Box p={4}>
-        <Button colorScheme="blue">안녕! 차크라 😃</Button>
-      </Box>
-    </Container>
+    <Grid
+      templateAreas={{
+        // sm, md, lg, xl, 2xl
+        // https://chakra-ui.com/docs/styled-system/theme#breakpoints
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`, // 1024px
+      }}
+    >
+      <GridItem area="nav" bg="blue.400">
+        Nav
+      </GridItem>
+      <Show above="lg">
+        <GridItem area="aside" bg="yellow.300">
+          Aside
+        </GridItem>
+      </Show>
+      <GridItem area="main" bg="yellow.400">
+        Main
+      </GridItem>
+    </Grid>
   );
 }
 
