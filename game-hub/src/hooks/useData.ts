@@ -1,4 +1,4 @@
-import { CanceledError } from 'axios';
+import { AxiosRequestConfig, CanceledError } from 'axios';
 import { useEffect, useState } from 'react';
 import apiClient from '../services/apiClient';
 
@@ -7,7 +7,11 @@ interface FetchResponse<T> {
   results: T[];
 }
 
-function useData<T>(endpoint: string) {
+function useData<T>(
+  endpoint: string,
+  requestConfig?: AxiosRequestConfig,
+  deps: unknown[] = []
+) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
   const [data, setData] = useState<T[]>([]);
@@ -18,7 +22,10 @@ function useData<T>(endpoint: string) {
     setIsLoading(true);
 
     apiClient
-      .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
+      .get<FetchResponse<T>>(endpoint, {
+        signal: controller.signal,
+        ...requestConfig,
+      })
       .then((response) => {
         setData(response.data.results);
         setIsLoading(false);
@@ -30,7 +37,8 @@ function useData<T>(endpoint: string) {
       });
 
     return () => controller.abort();
-  }, [endpoint]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [endpoint, ...deps]);
 
   return { isLoading, error, data };
 }
