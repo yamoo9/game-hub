@@ -6,7 +6,7 @@ import GameCardSkeleton from './GameCardSkeleton';
 const skeletons = Array(10).fill(null);
 
 function GameGrid() {
-  const { games, error, isLoading } = useGames();
+  const { data: games, error, isLoading } = useGames();
 
   return (
     <>
