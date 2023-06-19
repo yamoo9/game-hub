@@ -3,7 +3,7 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 
-const skeletons = Array(10).fill(null);
+const skeletons = Array(20).fill(null);
 
 function GameGrid() {
   const { data: games, error, isLoading } = useGames();
@@ -19,7 +19,7 @@ function GameGrid() {
           xl: 5,
         }}
         p={4}
-        spacing={10}
+        spacing={3}
       >
         {isLoading
           ? skeletons.map((_, index) => <GameCardSkeleton key={index} />)
