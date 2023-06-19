@@ -19,6 +19,7 @@ function useData<T>(
   useEffect(() => {
     const controller = new AbortController();
 
+    setError('');
     setIsLoading(true);
 
     apiClient

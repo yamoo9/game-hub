@@ -23,7 +23,7 @@ function GameGrid({ selectedGenre }: Props) {
           lg: 3,
           xl: 5,
         }}
-        p={4}
+        py={4}
         spacing={3}
       >
         {isLoading

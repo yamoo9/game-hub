@@ -1,8 +1,4 @@
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Button,
   HStack,
@@ -13,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import useGenres, { Genre } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/imageUrl';
+import ErrorMessage from './ErrorMessage';
 
 const styles = {
   disabled: {
@@ -34,33 +31,17 @@ function GenreList({ selectedGenreId, onSelectGenre }: Props) {
   if (isLoading) {
     return (
       <Box mt={3} mx={5}>
-        <Spinner
-          thickness="2px"
-          speed="1.2s"
-          emptyColor="gray.300"
-          color="cyan.500"
-          size="md"
-        />
+        <Spinner color="cyan.500" />
       </Box>
     );
   }
 
   if (error) {
-    return (
-      <Alert status="error" borderRadius={6} ml={1}>
-        <AlertIcon />
-        <Box>
-          <AlertTitle>ERROR</AlertTitle>
-          <AlertDescription fontSize="sm" display="inline-block" lineHeight="1">
-            {error}
-          </AlertDescription>
-        </Box>
-      </Alert>
-    );
+    return <ErrorMessage error={error} />;
   }
 
   return (
-    <List ml={4} mt={3}>
+    <List ml={4} mt={0}>
       {genres.map((genre) => {
         const isSelected = genre.id === selectedGenreId;
         return (
