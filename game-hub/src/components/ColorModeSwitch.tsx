@@ -1,4 +1,10 @@
-import { HStack, FormLabel, Switch, useColorMode } from '@chakra-ui/react';
+import {
+  HStack,
+  FormLabel,
+  Switch,
+  useColorMode,
+  Hide,
+} from '@chakra-ui/react';
 import { useId } from 'react';
 
 function ColorModeSwitch() {
@@ -14,9 +20,11 @@ function ColorModeSwitch() {
         isChecked={isDarkMode}
         onChange={toggleColorMode}
       />
-      <FormLabel htmlFor={id} m={0} mr={2}>
-        Dark Mode
-      </FormLabel>
+      <Hide below="lg">
+        <FormLabel htmlFor={id} m={0} mr={2} whiteSpace="nowrap">
+          Dark Mode
+        </FormLabel>
+      </Hide>
     </HStack>
   );
 }
