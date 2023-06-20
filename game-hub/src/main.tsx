@@ -2,7 +2,9 @@ import { StrictMode } from 'react';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { createRoot } from 'react-dom/client';
 
+import '@smastrom/react-rating/style.css';
 import './index.css';
+
 import App from './App';
 import theme from './theme';
 
