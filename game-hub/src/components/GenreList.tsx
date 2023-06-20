@@ -41,7 +41,7 @@ function GenreList({ selectedGenreId, onSelectGenre }: Props) {
   }
 
   return (
-    <List ml={4} mt={0}>
+    <List>
       {genres.map((genre) => {
         const isSelected = genre.id === selectedGenreId;
         return (
