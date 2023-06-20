@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Grid, GridItem, HStack, Show } from '@chakra-ui/react';
 
+import { Genre } from './hooks/useGenres';
+import { Platform } from './hooks/usePlatforms';
+
 import NavBar from './components/NavBar';
 import GameGrid from './components/GameGrid';
 import GenreList from './components/GenreList';
 import PlatformSelector from './components/PlatformSelector';
-
-import { Genre } from './hooks/useGenres';
-import { Platform } from './hooks/usePlatforms';
 import SortSelector from './components/SortSelector';
 import GameHeading from './components/GameHeading';
 
@@ -43,14 +43,14 @@ function App() {
       }}
       templateColumns={{
         base: '1fr',
-        lg: '264px 1fr',
+        lg: '200px 1fr',
       }}
     >
       <GridItem area="nav">
         <NavBar onSearch={handleSearch} />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside" pl={4}>
+        <GridItem area="aside" pl={4} pt={4}>
           <GenreList
             selectedGenreId={gameQuery.genre?.id}
             onSelectGenre={handleSelectGenre}

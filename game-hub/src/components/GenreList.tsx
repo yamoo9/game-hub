@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -41,33 +42,41 @@ function GenreList({ selectedGenreId, onSelectGenre }: Props) {
   }
 
   return (
-    <List>
-      {genres.map((genre) => {
-        const isSelected = genre.id === selectedGenreId;
-        return (
-          <ListItem key={genre.id} py={1}>
-            <HStack>
-              <Image
-                boxSize="32px"
-                borderRadius={8}
-                src={getCroppedImageUrl(genre.image_background)}
-              />
-              <Button
-                variant="link"
-                fontSize="lg"
-                onClick={onSelectGenre(genre)}
-                color={isSelected ? 'cyan.400' : 'gray.500'}
-                isDisabled={isSelected}
-                _disabled={styles.disabled}
-                _active={styles.active}
-              >
-                {genre.name}
-              </Button>
-            </HStack>
-          </ListItem>
-        );
-      })}
-    </List>
+    <>
+      <Heading as="h3" fontSize="2xl" mb={4}>
+        Genre
+      </Heading>
+      <List display="flex" flexFlow="column" gap={2}>
+        {genres.map((genre) => {
+          const isSelected = genre.id === selectedGenreId;
+          return (
+            <ListItem key={genre.id} py={1}>
+              <HStack>
+                <Image
+                  boxSize="32px"
+                  objectFit="cover"
+                  borderRadius={8}
+                  src={getCroppedImageUrl(genre.image_background)}
+                />
+                <Button
+                  variant="link"
+                  fontSize="lg"
+                  whiteSpace="normal"
+                  textAlign="left"
+                  onClick={onSelectGenre(genre)}
+                  color={isSelected ? 'cyan.400' : 'gray.500'}
+                  isDisabled={isSelected}
+                  _disabled={styles.disabled}
+                  _active={styles.active}
+                >
+                  {genre.name}
+                </Button>
+              </HStack>
+            </ListItem>
+          );
+        })}
+      </List>
+    </>
   );
 }
 

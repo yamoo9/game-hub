@@ -17,13 +17,15 @@ function GameCard({ game }: Props) {
         minH="150px"
       />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justify="space-between" alignItems="flex-start" mt={2}>
+        <HStack justify="space-between" alignItems="center" mb={4}>
           <PlatformIconList
             platforms={game.parent_platforms.map(({ platform }) => platform)}
           />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="2xl" noOfLines={1} title={game.name}>
+          {game.name}
+        </Heading>
       </CardBody>
     </Card>
   );

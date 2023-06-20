@@ -22,14 +22,15 @@ function GameGrid({ gameQuery }: Props) {
           sm: 1,
           md: 2,
           lg: 3,
-          xl: 5,
+          xl: 4,
+          '2xl': 6,
         }}
         py={4}
         px={{
           base: 4,
           lg: 0,
         }}
-        spacing={3}
+        spacing={4}
       >
         {isLoading
           ? skeletons.map((_, index) => <GameCardSkeleton key={index} />)
