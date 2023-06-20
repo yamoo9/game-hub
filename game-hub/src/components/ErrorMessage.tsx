@@ -8,11 +8,12 @@ import {
 
 interface Props {
   error: string;
+  [key: string]: unknown;
 }
 
-function ErrorMessage({ error }: Props) {
+function ErrorMessage({ error, ...restProsp }: Props) {
   return (
-    <Alert status="error" borderRadius={6} ml={1}>
+    <Alert status="error" borderRadius={6} {...restProsp}>
       <AlertIcon />
       <Box>
         <AlertTitle>ERROR</AlertTitle>

@@ -29,7 +29,7 @@ function PlatformSelector({ selectedPlatformName, onSelectPlatform }: Props) {
   }
 
   if (error) {
-    return <ErrorMessage error={error} />;
+    return <ErrorMessage error={error} ml={1} />;
   }
 
   return (
