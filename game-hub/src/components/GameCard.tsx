@@ -18,7 +18,7 @@ function GameCard({ game }: Props) {
       />
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justify="space-between" mt={2}>
+        <HStack justify="space-between" alignItems="flex-start" mt={2}>
           <PlatformIconList
             platforms={game.parent_platforms.map(({ platform }) => platform)}
           />
