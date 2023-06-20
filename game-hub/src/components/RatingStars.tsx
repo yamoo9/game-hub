@@ -1,10 +1,10 @@
-import { theme } from '@chakra-ui/react';
+import theme from '../theme';
 import { Rating, ThinStar } from '@smastrom/react-rating';
 
 const ratingItemStyles = {
   itemShapes: ThinStar,
   activeFillColor: theme.colors.cyan[600],
-  inactiveFillColor: theme.colors.gray[300],
+  inactiveFillColor: theme.colors.gray[400],
 };
 
 const getLabel = (rating: number): string => {
